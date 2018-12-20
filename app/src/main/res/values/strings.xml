@@ -9,4 +9,14 @@
     <string name="start_timer">Start Timer</string>
     <string name="start_timer_text">Ready To Start The Timer?</string>
     <string name="stop">Stop</string>
+    <string name="number_players">Number Of Players</string>
+    <string name="playing_time">Playing Time</string>
+    <string name="language">Language</string>
+    <string name="back_btn">Back</string>
+    <string name="role">Role</string>
+    <string name="times_up">Time is up!</string>
+    <string name="unknown_location">Unknown</string>
+    <string name="spy">Spy</string>
+    <string name="lang_en">English</string>
+    <string name="lang_bg">Bulgarian</string>
 </resources>

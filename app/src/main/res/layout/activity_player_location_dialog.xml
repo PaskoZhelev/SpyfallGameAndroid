@@ -39,7 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1.5"
             android:orientation="vertical">
 
@@ -47,18 +47,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/playerField3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
+                    android:layout_weight="1"
                     android:fontFamily="@font/mailart"
                     android:gravity="center"
-                    android:text="Location"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
+                    android:text="@string/location"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/locationName"
@@ -69,27 +69,27 @@
                     android:gravity="center"
                     android:text="Military Camp"
                     android:textColor="@android:color/background_light"
-                    android:textSize="40sp" />
+                    android:textSize="38sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/playerField3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
+                    android:layout_weight="1"
                     android:fontFamily="@font/mailart"
                     android:gravity="center"
-                    android:text="Role"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
+                    android:text="@string/role"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/roleName"
@@ -100,7 +100,7 @@
                     android:gravity="center"
                     android:text="Military Camp"
                     android:textColor="@android:color/background_light"
-                    android:textSize="25sp" />
+                    android:textSize="28sp" />
 
             </LinearLayout>
 

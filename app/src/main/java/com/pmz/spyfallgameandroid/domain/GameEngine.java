@@ -49,8 +49,9 @@ public class GameEngine {
 
     public void generateRandomRoles() {
         ArrayList<String> roles = new ArrayList<>();
+        Collections.shuffle(currentLocation.getRoles());
         for(int i = 0; i < settings.getNumPlayers() - 1; i++) {
-            roles.add(currentLocation.getRoles().get(generateNumForRoles()));
+            roles.add(currentLocation.getRoles().get(i));
         }
         roles.add(SPY_ROLE);
         //shuffle the roles for players

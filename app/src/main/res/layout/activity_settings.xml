@@ -16,7 +16,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="150dp"
         android:layout_marginTop="150dp"
         android:orientation="vertical">
 
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/mailart"
             android:gravity="center"
-            android:text="Number of Players"
+            android:text="@string/number_players"
             android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
@@ -35,8 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
+            android:backgroundTint="@android:color/background_light"
             android:ems="3"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
             android:textColorHighlight="@android:color/background_light"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/mailart"
             android:gravity="center"
-            android:text="Playing Time"
+            android:text="@string/playing_time"
             android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
@@ -58,11 +59,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
+            android:backgroundTint="@android:color/background_light"
             android:ems="3"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
             android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
             android:textColorLink="@android:color/background_light" />
 
         <TextView
@@ -71,7 +75,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/mailart"
             android:gravity="center"
-            android:text="Language"
+            android:text="@string/language"
             android:textColor="@android:color/background_light"
             android:textSize="22sp" />
 
@@ -84,33 +88,48 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/languageGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/englishBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@android:color/background_light"
                     android:fontFamily="@font/mailart"
-                    android:text="English"
+                    android:text="@string/lang_en"
                     android:textColor="@android:color/background_light"
                     android:textColorHighlight="@android:color/background_light"
                     android:textColorHint="@android:color/background_light"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/bulgarianBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@android:color/background_light"
                     android:fontFamily="@font/mailart"
-                    android:text="Bulgarian"
+                    android:text="@string/lang_bg"
                     android:textColor="@android:color/background_light"
                     android:textColorHighlight="@android:color/background_light"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
             </RadioGroup>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_border"
+            android:fontFamily="@font/mailart"
+            android:text="@string/back_btn"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
 
     </LinearLayout>
 

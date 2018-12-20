@@ -16,7 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -33,15 +33,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="34dp"
-                android:layout_marginTop="58dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/mailart"
                 android:gravity="center"
                 android:text="@string/start_timer_text"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/background_light"
-                android:textSize="50sp" />
+                android:textSize="53sp" />
 
         </LinearLayout>
 

@@ -9,16 +9,13 @@ import android.widget.TextView;
 
 import com.pmz.spyfallgameandroid.R;
 import com.pmz.spyfallgameandroid.domain.GameEngine;
-import com.pmz.spyfallgameandroid.util.constant.BaseConstants;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.ViewsById;
 
-import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.General.SPY;
 import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.General.SPY_ROLE;
-import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.General.UNKNOWN_LOCATION;
+import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.getSettings;
 
 @EActivity
 public class GameActivity extends BaseActivity {
@@ -79,8 +76,8 @@ public class GameActivity extends BaseActivity {
             roleName.setText(role);
         } else {
             changeImageView(locationImg, SPY_ROLE);
-            locationName.setText(UNKNOWN_LOCATION);
-            roleName.setText(SPY);
+            locationName.setText(R.string.unknown_location);
+            roleName.setText(R.string.spy);
         }
 
         builder.setView(view);

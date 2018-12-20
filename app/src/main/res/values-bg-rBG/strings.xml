@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spyfall</string>
+    <string name="new_game">Нова Игра</string>
+    <string name="settings">Настройки</string>
+    <string name="see_location">Виж Локация</string>
+    <string name="next_player">Следващ Играч</string>
+    <string name="player">Играч</string>
+    <string name="location">Локация</string>
+    <string name="start_timer">Старт Таймер</string>
+    <string name="start_timer_text">Готови за Игра?</string>
+    <string name="stop">Стоп</string>
+    <string name="number_players">Номер Играчи</string>
+    <string name="playing_time">Време</string>
+    <string name="language">Език</string>
+    <string name="back_btn">Назад</string>
+    <string name="role">Роля</string>
+    <string name="times_up">Времето изтече!</string>
+    <string name="unknown_location">Неизвестна</string>
+    <string name="spy">Шпионин</string>
+    <string name="lang_en">Английски</string>
+    <string name="lang_bg">Български</string>
+</resources>

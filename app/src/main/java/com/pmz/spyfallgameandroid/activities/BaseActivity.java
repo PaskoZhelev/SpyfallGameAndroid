@@ -16,14 +16,12 @@ import java.util.Locale;
 @EActivity
 public class BaseActivity extends AppCompatActivity {
 
-    private GameSettings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideNavigationBar();
 
-        settings = new GameSettings();
     }
 
     @Override
@@ -70,7 +68,11 @@ public class BaseActivity extends AppCompatActivity {
         return getResources().getIdentifier(resourceName, "drawable", getPackageName());
     }
 
-    public GameSettings getSettings() {
-        return settings;
+    public void changeLanguageLocale(final String language) {
+        Locale locale = new Locale(language);
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
+
 }

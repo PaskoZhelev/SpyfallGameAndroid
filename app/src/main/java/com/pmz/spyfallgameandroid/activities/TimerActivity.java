@@ -19,6 +19,8 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.getSettings;
+
 @EActivity
 public class TimerActivity extends BaseActivity {
 
@@ -47,6 +49,7 @@ public class TimerActivity extends BaseActivity {
 
     @Click(R.id.startTimer)
     public void startTimer() {
+        startTimer.setVisibility(View.INVISIBLE);
         stopTimer.setVisibility(View.VISIBLE);
 
         new CountDownTimer(TimeUnit.MINUTES.toMillis(getSettings().getTimerMinutes()), 1000) { // adjust the milli seconds here
@@ -63,7 +66,7 @@ public class TimerActivity extends BaseActivity {
 
             public void onFinish() {
 
-                timeField.setText("Time is up!");
+                timeField.setText(R.string.times_up);
                 Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
                 final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), notification);
                 mp.start();
