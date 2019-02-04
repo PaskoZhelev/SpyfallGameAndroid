@@ -1,17 +1,25 @@
 package com.pmz.spyfallgameandroid.activities;
 
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pmz.spyfallgameandroid.R;
+import com.pmz.spyfallgameandroid.domain.GameEngine;
+import com.pmz.spyfallgameandroid.domain.Location;
+import com.pmz.spyfallgameandroid.util.constant.BaseConstants;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -19,6 +27,8 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.General.SPY_PLAYER_NUM;
+import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.General.SPY_ROLE;
 import static com.pmz.spyfallgameandroid.util.constant.BaseConstants.getSettings;
 
 @EActivity
@@ -30,7 +40,11 @@ public class TimerActivity extends BaseActivity {
     Button startTimer;
     @ViewById
     Button stopTimer;
+    @ViewById
+    Button locationsBtn;
 
+    private CountDownTimer timer;
+    private int spyPlayerNum;
     private static final String FORMAT = "%02d:%02d:%02d";
 
 
@@ -39,12 +53,8 @@ public class TimerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
-        stopTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity(MainActivity_.class);
-            }
-        });
+        Intent intent = getIntent();
+        spyPlayerNum = intent.getIntExtra(SPY_PLAYER_NUM, 0);
     }
 
     @Click(R.id.startTimer)
@@ -52,7 +62,7 @@ public class TimerActivity extends BaseActivity {
         startTimer.setVisibility(View.INVISIBLE);
         stopTimer.setVisibility(View.VISIBLE);
 
-        new CountDownTimer(TimeUnit.MINUTES.toMillis(getSettings().getTimerMinutes()), 1000) { // adjust the milli seconds here
+        timer = new CountDownTimer(TimeUnit.MINUTES.toMillis(getSettings().getTimerMinutes()), 1000) { // adjust the milli seconds here
 
             public void onTick(long millisUntilFinished) {
 
@@ -75,10 +85,76 @@ public class TimerActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         mp.stop();
-                        openActivity(MainActivity_.class);
+                        stopTimer();
                     }
                 });
             }
-        }.start();
+        };
+        timer.start();
+    }
+
+    @Click(R.id.stopTimer)
+    public void stopTimer() {
+        if (timer != null) {
+            timer.cancel();
+        }
+        stopTimer.setText(R.string.reveal_spy);
+        locationsBtn.setVisibility(View.VISIBLE);
+        stopTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String player = getResources().getString(R.string.player);
+                timeField.setText(String.format("%s %s", player, String.valueOf(spyPlayerNum)));
+
+                stopTimer.setText(R.string.finish);
+                stopTimer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openActivity(MainActivity_.class);
+                    }
+                });
+
+            }
+        });
+    }
+
+    @Click(R.id.locationsBtn)
+    public void locationsBtnClicked() {
+        activateLocationsDialog();
+    }
+
+    private void activateLocationsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.activity_locations_dialog, null);
+        TextView locationsText = (TextView) view.findViewById(R.id.locationsText);
+        Button okBtn2 = (Button) view.findViewById(R.id.okBtn2);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0x00000000));
+        dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+        dialog.show();
+        dialog.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+        GameEngine gameEngine = new GameEngine(getSettings(), getApplicationContext());
+        StringBuilder sb = new StringBuilder();
+        for (Location loc :
+                gameEngine.getLocations()) {
+            sb.append(loc.getName());
+            sb.append("\n");
+        }
+        locationsText.setText(sb.toString());
+
+        okBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }

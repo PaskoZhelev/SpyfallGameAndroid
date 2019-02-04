@@ -14,6 +14,7 @@ public class BaseConstants {
         public static final String LOCATIONS_TEXT_FILE = "locations";
         public static final String BULGARIAN= "bg";
         public static final String SPY_ROLE = "spy";
+        public static final String SPY_PLAYER_NUM = "SpyPlayerNum";
     }
 
     public static class Language {

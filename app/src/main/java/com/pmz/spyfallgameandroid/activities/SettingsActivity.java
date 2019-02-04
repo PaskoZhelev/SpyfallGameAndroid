@@ -32,6 +32,7 @@ public class SettingsActivity extends BaseActivity {
     @ViewById
     Button backBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

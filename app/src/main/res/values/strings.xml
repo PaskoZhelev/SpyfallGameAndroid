@@ -19,4 +19,7 @@
     <string name="spy">Spy</string>
     <string name="lang_en">English</string>
     <string name="lang_bg">Bulgarian</string>
+    <string name="reveal_spy">Reveal Spy</string>
+    <string name="finish">Finish</string>
+    <string name="locations">Locations</string>
 </resources>

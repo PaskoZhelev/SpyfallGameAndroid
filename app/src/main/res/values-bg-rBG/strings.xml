@@ -20,4 +20,7 @@
     <string name="spy">Шпионин</string>
     <string name="lang_en">Английски</string>
     <string name="lang_bg">Български</string>
+    <string name="reveal_spy">Разкрий Шпионина</string>
+    <string name="finish">Изход</string>
+    <string name="locations">Локации</string>
 </resources>

@@ -74,6 +74,19 @@
                 android:textSize="30sp"
                 android:visibility="invisible" />
 
+            <Button
+                android:id="@+id/locationsBtn"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_border"
+                android:fontFamily="@font/mailart"
+                android:text="@string/locations"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp"
+                android:visibility="invisible" />
+
         </LinearLayout>
 
     </LinearLayout>
